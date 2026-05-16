@@ -34,6 +34,7 @@ function Index() {
       <main className="mx-auto max-w-6xl px-5 pb-24 pt-6 md:px-8">
         <Hero />
         <CardGrid />
+        <CompanySection />
         <Contact />
       </main>
       <Footer />
