@@ -271,23 +271,6 @@ const cards: CardData[] = [
   },
 ];
 
-const publications = [
-  { title: "Role of Indian Summer Monsoon and westerlies on past glacier and climate variability in the Himalaya and East Africa during the late Quaternary.", journal: "Earth-Science Reviews (Elsevier, Q1)", if: "10.44", doi: "https://doi.org/10.1016/j.earscirev.2020.103431" },
-  { title: "Disentangling the source of moisture driving glacier dynamics and identification of the 8.2 ka event — pore water isotopes, Western Himalaya.", journal: "Scientific Reports (Nature Portfolio, Q1)", if: "3.9", doi: "https://doi.org/10.1038/s41598-020-71686-4" },
-  { title: "Deciphering the role of meteorological parameters controlling sediment load and water discharge in the Sutlej basin, Western Himalaya.", journal: "Journal of Environmental Management (Elsevier, Q1)", if: "9.61", doi: "https://doi.org/10.1016/j.jenvman.2021.113413" },
-  { title: "Testing reliable proxies to understand Mid-Holocene climate variability — Chandratal Lake, Western Himalayas.", journal: "Quaternary International (Elsevier)", if: "2.30", doi: "https://doi.org/10.1016/j.quaint.2020.11.003" },
-  { title: "Westward shift of Indian Summer Monsoon precipitation and heat-wave frequency patterns over South Asia.", journal: "Int. J. of Disaster Studies & Climate Resilience (2025)", doi: "https://doi.org/10.64866/j.ijdscr.2025.10005" },
-  { title: "Deciphering the past climate and monsoon variability from lake sediment archives of India: a review.", journal: "Journal of Climate Change (SAGE)", if: "0.9", doi: "https://doi.org/10.3233/JCC-170011" },
-  { title: "The water tower of India in a long-term perspective — reconstructing glaciers and climate in Himachal Pradesh during the last 13,000 years.", journal: "Journal of Climate Change (SAGE)", if: "0.9", doi: "https://doi.org/10.3233/JCC-160011" },
-  { title: "Understanding the hydro-chemical functioning of glacierized catchments of the upper Indus basin in Ladakh.", journal: "Environmental Science & Pollution Research (Springer, Q1)", if: "5.0", doi: "https://doi.org/10.1007/s11356-022-23477-9" },
-  { title: "Mega festivals like MahaKumbh facilitated transmission of SARS-CoV-2 to humans and endangered animals via contaminated water.", journal: "Int. J. of Hygiene & Environmental Health (Elsevier, Q1)", if: "~7.0", doi: "https://doi.org/10.1016/j.ijheh.2021.113836" },
-  { title: "Prevalence of anemia in females of early reproductive age and its correlation with socio-economic indicators — India.", journal: "Discover Public Health (Springer Nature)", doi: "https://doi.org/10.1186/s12982-025-00992-x" },
-  { title: "Decoding the hydro-meteorological processes of spring recharge dynamics in the Alaknanda River basin through stable & radio isotopes.", journal: "Hydrological Sciences Journal (Taylor & Francis, Q1) — under revision", if: "2.77" },
-  { title: "Mid-Holocene shifts in westerlies: impacts on Central Asia, Mediterranean and Indian civilisations, and Himalayan-Tibet cryosphere.", journal: "Communications Earth & Environment (Nature Portfolio, Q1) — under revision", if: "8.1" },
-  { title: "Assessing chemical weathering processes in the Takoli Gad watershed, Lesser Himalaya, using DIC isotopes and major-ion compositions of spring water.", journal: "Journal of Hydrology, Regional Studies (Q1) — under revision", if: "4.86" },
-  { title: "Black carbon and sublimation dynamics in retreating Hindu Kush Himalayan glaciers under two atmospheric circulations.", journal: "Atmospheric Chemistry and Physics (Q1) — under review", if: "6.3" },
-  { title: "Disentangling tropospheric moisture source contributions using vapor δ18O and d-excess across contrasting atmospheric circulations in India.", journal: "Atmospheric Environment (Q1) — under review", if: "3.7" },
-];
 
 function Edu({ year, title, detail }: { year: string; title: string; detail: string }) {
   return (
