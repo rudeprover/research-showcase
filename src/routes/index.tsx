@@ -34,6 +34,7 @@ function Index() {
       <main className="mx-auto max-w-6xl px-5 pb-24 pt-6 md:px-8">
         <Hero />
         <CardGrid />
+        <CompanySection />
         <Contact />
       </main>
       <Footer />
@@ -334,21 +335,25 @@ function ExpandableCard({ card }: { card: CardData }) {
   );
 }
 
-function CompanyCard() {
+function CompanySection() {
   return (
-    <div id="company" className="relative overflow-hidden rounded-2xl bg-foreground p-6 text-background">
+    <section id="company" className="relative mt-10 overflow-hidden rounded-2xl bg-foreground p-6 text-background md:p-8">
       <div className="absolute inset-0 bg-gradient-to-br from-accent/40 via-foreground to-foreground" />
-      <div className="relative flex h-full flex-col items-center justify-center gap-3 text-center">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-background/10 backdrop-blur">
-          <Globe className="h-5 w-5 text-background" />
-        </span>
-        <h3 className="font-display text-xl font-semibold">Environmental ES</h3>
-        <p className="text-sm text-background/75">Environmental Research & Consulting</p>
-        <span className="mt-1 inline-flex items-center gap-2 rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/80">
+      <div className="relative flex flex-col items-start gap-5 md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center gap-4">
+          <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-background/10 backdrop-blur">
+            <Globe className="h-5 w-5 text-background" />
+          </span>
+          <div>
+            <h3 className="font-display text-xl font-semibold">Environmental ES</h3>
+            <p className="text-sm text-background/75">Environmental Research & Consulting</p>
+          </div>
+        </div>
+        <span className="inline-flex items-center gap-2 rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/80">
           <Globe className="h-3.5 w-3.5" /> Domain coming soon
         </span>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -356,7 +361,6 @@ function CardGrid() {
   return (
     <section className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {cards.map((c) => <ExpandableCard key={c.id} card={c} />)}
-      <CompanyCard />
     </section>
   );
 }
