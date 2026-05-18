@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Om kumar" },
+      { name: "description", content: "A minimalistic researcher portfolio showcasing academic and professional achievements with interactive card-based sections." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Om kumar" },
+      { property: "og:description", content: "A minimalistic researcher portfolio showcasing academic and professional achievements with interactive card-based sections." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Om kumar" },
+      { name: "twitter:description", content: "A minimalistic researcher portfolio showcasing academic and professional achievements with interactive card-based sections." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2387d340-377f-44e8-a1d6-35823bef6128/id-preview-d8c4a8eb--c73afd60-30c7-4008-a91d-80411f823ae3.lovable.app-1779081100898.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2387d340-377f-44e8-a1d6-35823bef6128/id-preview-d8c4a8eb--c73afd60-30c7-4008-a91d-80411f823ae3.lovable.app-1779081100898.png" },
     ],
     links: [
       {
