@@ -9,9 +9,9 @@ import heroImg from "@/assets/hero-glacier.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dr. Om Kumar — Himalayan Glaciologist & Climate Scientist" },
-      { name: "description", content: "Portfolio of Dr. Om Kumar, Project Scientist at the National Institute of Hydrology, Roorkee — Himalayan cryosphere, paleoclimate and isotope hydrology research." },
-      { property: "og:title", content: "Dr. Om Kumar — Himalayan Glaciologist & Climate Scientist" },
+      { title: "Om Kumar — Postdoctoral Researcher, IIT Roorkee" },
+      { name: "description", content: "Portfolio of Om Kumar, Postdoctoral Researcher at the International Centre of Excellence for Dams, IIT Roorkee — Climate Change, Monsoon & River sediment interaction, Cryosphere, Carbon Cycling & Isotopes." },
+      { property: "og:title", content: "Om Kumar — Postdoctoral Researcher, IIT Roorkee" },
       { property: "og:description", content: "Research, publications and projects on Himalayan glaciers, monsoon variability and climate change." },
     ],
   }),
@@ -47,7 +47,7 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
         <a href="#top" className="font-display text-lg font-semibold tracking-tight">
-          Dr. Om Kumar
+          Om Kumar
         </a>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
           {nav.map((n) => (
@@ -69,14 +69,14 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
       <div className="absolute inset-0 flex flex-col justify-end p-7 md:p-12">
         <span className="mb-5 inline-flex w-fit items-center rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-accent-foreground">
-          Himalayan Glaciologist & Climate Scientist
+          Postdoctoral Researcher · Climate Change · Cryosphere
         </span>
-        <h1 className="text-4xl font-semibold text-background md:text-6xl">Dr. Om Kumar</h1>
+        <h1 className="text-4xl font-semibold text-background md:text-6xl">Om Kumar</h1>
         <p className="mt-3 max-w-2xl text-base text-background/90 md:text-lg">
-          Project Scientist · National Institute of Hydrology, Roorkee
+          Postdoctoral Researcher · International Centre of Excellence for Dams, IIT Roorkee
         </p>
         <p className="mt-1 max-w-2xl text-sm text-background/70">
-          Ministry of Jal Shakti, Dept. of Water Resources, River Development & Ganga Rejuvenation
+          Climate Change · Monsoon & River Sediment Interaction · Interdisciplinary Sciences · Cryosphere · Carbon Cycling · Isotopes
         </p>
         <dl className="mt-7 grid max-w-xl grid-cols-4 gap-5">
           {[
@@ -167,7 +167,9 @@ const cards: CardData[] = [
     subtitle: "Project Scientist at NIH Roorkee · 10+ years",
     body: (
       <ol className="relative space-y-5 border-l border-border pl-5 text-sm">
-        <Job period="Aug 2025 – Present" role="Project Scientist"
+        <Job period="Present" role="Postdoctoral Researcher"
+          org="International Centre of Excellence for Dams, IIT Roorkee — Climate Change, Monsoon & River sediment interaction, Cryosphere, Carbon Cycling & Isotopes" />
+        <Job period="Aug 2025" role="Project Scientist"
           org="National Institute of Hydrology, Roorkee · Ministry of Jal Shakti" />
         <Job period="Jun 2024 – Aug 2025" role="Maharishi Kanad Postdoctoral Fellow"
           org="Institution of Eminence, University of Delhi — Himalayan Cryosphere Carbon Dynamics & Climate Change" />
@@ -373,7 +375,7 @@ function Contact() {
         <ContactItem icon={Mail} label="Primary Email" value="omkrs007@gmail.com" href="mailto:omkrs007@gmail.com" />
         <ContactItem icon={Mail} label="Institutional Email" value="omrs007.pdf@ioe.du.ac.in" href="mailto:omrs007.pdf@ioe.du.ac.in" highlight />
         <ContactItem icon={Phone} label="Phone" value="+91-9555111859" href="tel:+919555111859" />
-        <ContactItem icon={MapPin} label="Current Position" value="National Institute of Hydrology, Roorkee" />
+        <ContactItem icon={MapPin} label="Current Position" value="Postdoctoral Researcher, ICED, IIT Roorkee" />
       </div>
     </section>
   );
@@ -397,7 +399,7 @@ function ContactItem({ icon: Icon, label, value, href, highlight }: {
 function Footer() {
   return (
     <footer className="border-t border-border/60 bg-foreground py-8 text-center text-xs text-background/60">
-      Dr. Om Kumar · Project Scientist · National Institute of Hydrology, Roorkee · {new Date().getFullYear()}
+      Om Kumar · Postdoctoral Researcher · International Centre of Excellence for Dams, IIT Roorkee · {new Date().getFullYear()}
     </footer>
   );
 }
