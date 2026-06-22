@@ -1,40 +1,39 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Mountain, GraduationCap, Briefcase, BookOpen, FlaskConical,
-  Wrench, Award, Users, Globe, Mail, Phone, MapPin, ChevronDown,
+  GraduationCap, CloudSun, Mountain, Globe2, Mail, Phone, MapPin,
+  ChevronDown, ArrowUpRight, Compass, Layers, Microscope, Users,
 } from "lucide-react";
-import heroImg from "@/assets/hero-glacier.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Om Kumar — Postdoctoral Researcher, IIT Roorkee" },
-      { name: "description", content: "Portfolio of Om Kumar, Postdoctoral Researcher at the International Centre of Excellence for Dams, IIT Roorkee — Climate Change, Monsoon & River sediment interaction, Cryosphere, Carbon Cycling & Isotopes." },
-      { property: "og:title", content: "Om Kumar — Postdoctoral Researcher, IIT Roorkee" },
-      { property: "og:description", content: "Research, publications and projects on Himalayan glaciers, monsoon variability and climate change." },
+      { title: "Earth2Sky — Geospatial & Environmental Consulting" },
+      { name: "description", content: "Earth2Sky is a geospatial and environmental consulting firm offering specialised training, climate and cryosphere studies, and applied earth-observation research." },
+      { property: "og:title", content: "Earth2Sky — Geospatial & Environmental Consulting" },
+      { property: "og:description", content: "Training, climate & environmental studies, and applied geospatial research from a team of working scientists." },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
 });
 
 const nav = [
-  { id: "research", label: "Research" },
-  { id: "publications", label: "Publications" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "company", label: "Company" },
+  { id: "services", label: "Services" },
+  { id: "approach", label: "Approach" },
+  { id: "founder", label: "Founder" },
   { id: "contact", label: "Contact" },
 ];
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main className="mx-auto max-w-6xl px-5 pb-24 pt-6 md:px-8">
+      <main>
         <Hero />
-        <CardGrid />
-        <CompanySection />
+        <Services />
+        <Approach />
+        <Founder />
         <Contact />
       </main>
       <Footer />
@@ -44,18 +43,24 @@ function Index() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="font-display text-lg font-semibold tracking-tight">
-          Om Kumar
+    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10">
+        <a href="#top" className="flex items-center gap-2">
+          <span className="font-display text-lg font-semibold tracking-tight">Earth2Sky</span>
+          <span className="hidden text-xs uppercase tracking-[0.2em] text-muted-foreground sm:inline">
+            · Geospatial Consulting
+          </span>
         </a>
-        <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           {nav.map((n) => (
             <a key={n.id} href={`#${n.id}`} className="transition-colors hover:text-foreground">
               {n.label}
             </a>
           ))}
         </nav>
+        <a href="#contact" className="hidden rounded-full border border-foreground px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground transition-colors hover:bg-foreground hover:text-background md:inline-block">
+          Work with us
+        </a>
       </div>
     </header>
   );
@@ -63,343 +68,314 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative mt-2 overflow-hidden rounded-3xl">
-      <img src={heroImg} alt="Himalayan glacier landscape" width={1920} height={1024}
-        className="h-[460px] w-full object-cover md:h-[560px]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
-      <div className="absolute inset-0 flex flex-col justify-end p-7 md:p-12">
-        <span className="mb-5 inline-flex w-fit items-center rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-accent-foreground">
-          Postdoctoral Researcher · Climate Change · Cryosphere
-        </span>
-        <h1 className="text-4xl font-semibold text-background md:text-6xl">Om Kumar</h1>
-        <p className="mt-3 max-w-2xl text-base text-background/90 md:text-lg">
-          Postdoctoral Researcher · International Centre of Excellence for Dams, IIT Roorkee
+    <section id="top" className="border-b border-border">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-36">
+        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          Est. 2025 · India
         </p>
-        <p className="mt-1 max-w-2xl text-sm text-background/70">
-          Climate Change · Monsoon & River Sediment Interaction · Interdisciplinary Sciences · Cryosphere · Carbon Cycling · Isotopes
+        <h1 className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+          Geospatial &amp; environmental<br className="hidden md:block" /> consulting,
+          <em className="font-display italic text-muted-foreground"> grounded in science.</em>
+        </h1>
+        <p className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg">
+          Earth2Sky bridges earth observation and climate research with practical
+          decision support — through specialised training and rigorous environmental
+          studies for institutions, agencies and industry.
         </p>
-        <dl className="mt-7 grid max-w-xl grid-cols-4 gap-5">
-          {[
-            ["15", "Publications"],
-            ["40.7", "Total Impact Factor"],
-            ["6", "H-Index"],
-            ["117+", "Citations"],
-          ].map(([v, l]) => (
-            <div key={l}>
-              <dt className="font-display text-2xl font-semibold text-accent md:text-3xl">{v}</dt>
-              <dd className="mt-1 text-[10px] uppercase tracking-widest text-background/70">{l}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-10 flex flex-wrap items-center gap-3">
+          <a href="#services" className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90">
+            Our services <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-foreground">
+            Start a conversation
+          </a>
+        </div>
       </div>
     </section>
   );
 }
 
-type CardData = {
+type Service = {
   id: string;
+  number: string;
   icon: React.ComponentType<{ className?: string }>;
   title: string;
-  subtitle: string;
+  tagline: string;
   body: React.ReactNode;
-  section?: string;
 };
 
-const publications = [
-  { title: "Role of Indian Summer Monsoon and westerlies on past glacier and climate variability in the Himalaya and East Africa during the late Quaternary.", journal: "Earth-Science Reviews (Elsevier, Q1)", if: "10.44", doi: "https://doi.org/10.1016/j.earscirev.2020.103431" },
-  { title: "Disentangling the source of moisture driving glacier dynamics and identification of the 8.2 ka event — pore water isotopes, Western Himalaya.", journal: "Scientific Reports (Nature Portfolio, Q1)", if: "3.9", doi: "https://doi.org/10.1038/s41598-020-71686-4" },
-  { title: "Deciphering the role of meteorological parameters controlling sediment load and water discharge in the Sutlej basin, Western Himalaya.", journal: "Journal of Environmental Management (Elsevier, Q1)", if: "9.61", doi: "https://doi.org/10.1016/j.jenvman.2021.113413" },
-  { title: "Testing reliable proxies to understand Mid-Holocene climate variability — Chandratal Lake, Western Himalayas.", journal: "Quaternary International (Elsevier)", if: "2.30", doi: "https://doi.org/10.1016/j.quaint.2020.11.003" },
-  { title: "Westward shift of Indian Summer Monsoon precipitation and heat-wave frequency patterns over South Asia.", journal: "Int. J. of Disaster Studies & Climate Resilience (2025)", if: "", doi: "https://doi.org/10.64866/j.ijdscr.2025.10005" },
-  { title: "Deciphering the past climate and monsoon variability from lake sediment archives of India: a review.", journal: "Journal of Climate Change (SAGE)", if: "0.9", doi: "https://doi.org/10.3233/JCC-170011" },
-  { title: "The water tower of India in a long-term perspective — reconstructing glaciers and climate in Himachal Pradesh during the last 13,000 years.", journal: "Journal of Climate Change (SAGE)", if: "0.9", doi: "https://doi.org/10.3233/JCC-160011" },
-  { title: "Understanding the hydro-chemical functioning of glacierized catchments of the upper Indus basin in Ladakh.", journal: "Environmental Science & Pollution Research (Springer, Q1)", if: "5.0", doi: "https://doi.org/10.1007/s11356-022-23477-9" },
-  { title: "Mega festivals like MahaKumbh facilitated transmission of SARS-CoV-2 to humans and endangered animals via contaminated water.", journal: "Int. J. of Hygiene & Environmental Health (Elsevier, Q1)", if: "~7.0", doi: "https://doi.org/10.1016/j.ijheh.2021.113836" },
-  { title: "Prevalence of anemia in females of early reproductive age and its correlation with socio-economic indicators — India.", journal: "Discover Public Health (Springer Nature)", if: "", doi: "https://doi.org/10.1186/s12982-025-00992-x" },
-  { title: "Decoding the hydro-meteorological processes of spring recharge dynamics in the Alaknanda River basin through stable & radio isotopes.", journal: "Hydrological Sciences Journal (Taylor & Francis, Q1) — under revision", if: "2.77", doi: "" },
-  { title: "Mid-Holocene shifts in westerlies: impacts on Central Asia, Mediterranean and Indian civilisations, and Himalayan-Tibet cryosphere.", journal: "Communications Earth & Environment (Nature Portfolio, Q1) — under revision", if: "8.1", doi: "" },
-  { title: "Assessing chemical weathering processes in the Takoli Gad watershed, Lesser Himalaya, using DIC isotopes and major-ion compositions of spring water.", journal: "Journal of Hydrology, Regional Studies (Q1) — under revision", if: "4.86", doi: "" },
-  { title: "Black carbon and sublimation dynamics in retreating Hindu Kush Himalayan glaciers under two atmospheric circulations.", journal: "Atmospheric Chemistry and Physics (Q1) — under review", if: "6.3", doi: "" },
-  { title: "Disentangling tropospheric moisture source contributions using vapor δ18O and d-excess across contrasting atmospheric circulations in India.", journal: "Atmospheric Environment (Q1) — under review", if: "3.7", doi: "" },
-];
-
-const cards: CardData[] = [
+const services: Service[] = [
   {
-    id: "research", section: "research",
-    icon: Mountain, title: "Research Interests",
-    subtitle: "Himalayan cryosphere, paleoclimate & isotope hydrology",
+    id: "training",
+    number: "01",
+    icon: GraduationCap,
+    title: "Training & Workshops",
+    tagline: "Hands-on programmes in GIS, remote sensing & climate science.",
     body: (
-      <ul className="grid gap-2 sm:grid-cols-2">
-        {[
-          "Himalayan Glaciology", "Paleoclimate reconstruction", "Holocene monsoon variability",
-          "Stable & radio isotopes", "Lake sediment proxies", "Cryosphere–carbon dynamics",
-          "Black carbon & sublimation", "Snow & ice melt modelling", "Spring & groundwater recharge",
-          "Atmospheric circulation", "Westerlies–monsoon interaction", "Climate resilience",
-          "Hydro-chemical weathering", "Environmental health & water",
-        ].map((t) => (
-          <li key={t} className="rounded-lg bg-muted px-3 py-2 text-sm text-foreground/80">{t}</li>
-        ))}
-      </ul>
-    ),
-  },
-  {
-    id: "education",
-    icon: GraduationCap, title: "Education",
-    subtitle: "Ph.D. Himalayan Glaciology · UGC-NET Qualified",
-    body: (
-      <ul className="space-y-4 text-sm">
-        <Edu year="2021" title="Ph.D. — Himalayan Glaciology"
-          detail="Thesis: A multi-proxy study of Holocene monsoon climate variability and atmospheric circulation changes — Chandratal Lake sediments, Western Himalayas." />
-        <Edu year="2014" title="UGC-NET (Environmental Sciences)"
-          detail="National Eligibility Test, UGC, Government of India." />
-        <Edu year="2013" title="M.Sc. Dissertation"
-          detail="Trends of Indian Summer Monsoon and sediment load over the River Ganga, Bihar." />
-        <Edu year="2012" title="M.Sc. Summer Intern — IMD Patna"
-          detail="Trends of precipitation over Patna and Purnea, Bihar (Mentor: Dr. Ashish Sen)." />
-        <Edu year="2011" title="B.Sc. (H) Environmental Sciences"
-          detail="Water quality status of Sewage Treatment Plant, Beur, Patna." />
-      </ul>
-    ),
-  },
-  {
-    id: "experience", section: "experience",
-    icon: Briefcase, title: "Work Experience",
-    subtitle: "Project Scientist at NIH Roorkee · 10+ years",
-    body: (
-      <ol className="relative space-y-5 border-l border-border pl-5 text-sm">
-        <Job period="Present" role="Postdoctoral Researcher"
-          org="International Centre of Excellence for Dams, IIT Roorkee — Climate Change, Monsoon & River sediment interaction, Cryosphere, Carbon Cycling & Isotopes" />
-        <Job period="Aug 2025" role="Project Scientist"
-          org="National Institute of Hydrology, Roorkee · Ministry of Jal Shakti" />
-        <Job period="Jun 2024 – Aug 2025" role="Maharishi Kanad Postdoctoral Fellow"
-          org="Institution of Eminence, University of Delhi — Himalayan Cryosphere Carbon Dynamics & Climate Change" />
-        <Job period="2024 – Present" role="Teaching to Ph.D. Scholars"
-          org="Department of Geology, University of Delhi" />
-        <Job period="2023 – 2025" role="Assistant Professor (Guest)"
-          org="Hansraj College, University of Delhi" />
-        <Job period="2022 – 2023" role="Assistant Professor"
-          org="Miranda House, University of Delhi" />
-        <Job period="2020 – 2022" role="Assistant Professor (Ad-hoc)"
-          org="Lakshmibai College, University of Delhi" />
-        <Job period="2018 – 2020" role="Assistant Professor (Guest)"
-          org="Hansraj College, University of Delhi" />
-        <Job period="2014 – 2019" role="Scientific Assistant / JRF / SRF"
-          org="School of Environmental Sciences, JNU — Himalayan cryosphere & Indo-Swiss projects" />
-      </ol>
-    ),
-  },
-  {
-    id: "publications", section: "publications",
-    icon: BookOpen, title: "Publications",
-    subtitle: "15 papers · H-index 6 · Total IF 40.7",
-    body: (
-      <ol className="space-y-4 text-sm">
-        {publications.map((p, i) => (
-          <li key={i} className="rounded-xl border border-border/70 p-4">
-            <p className="text-foreground/90">{p.title}</p>
-            <p className="mt-1.5 text-xs text-muted-foreground">{p.journal}{p.if ? ` · IF ${p.if}` : ""}</p>
-            {p.doi && (
-              <a href={p.doi} target="_blank" rel="noreferrer"
-                className="mt-1.5 inline-block text-xs text-accent hover:underline">DOI</a>
-            )}
-          </li>
-        ))}
-      </ol>
-    ),
-  },
-  {
-    id: "projects", section: "projects",
-    icon: FlaskConical, title: "Research Projects & Grants",
-    subtitle: "4 funded projects including PI role",
-    body: (
-      <ul className="space-y-4 text-sm">
-        <Proj years="2024–2025" role="PI · Maharishi Kanad Postdoc Fellow (₹16 Lakh)"
-          title="Monsoon and cryosphere carbon dynamics and water in changing climate"
-          host="Institution of Eminence, University of Delhi" />
-        <Proj years="2016–2018" role="Junior Research Fellow"
-          title="Application of multi-proxy approach to understand past glaciation and climate variability of Western Himalaya"
-          host="JNU · IUAC funded" />
-        <Proj years="2014–2016" role="Junior Research Fellow"
-          title="Estimation of snow melt, ice melt, rainfall–runoff and base-flow contributions to the Chhota Shigri stream using environmental isotopes"
-          host="JNU · BARC funded" />
-        <Proj years="2013–2014" role="Scientific Assistant"
-          title="The Response of Hydrological Systems in India to Climate Change (INDICE)"
-          host="JNU · Switzerland funded" />
-      </ul>
-    ),
-  },
-  {
-    id: "skills",
-    icon: Wrench, title: "Skills & Tools",
-    subtitle: "Python, QGIS, Isotope Analysis & more",
-    body: (
-      <div className="flex flex-wrap gap-2">
-        {["Python","R Studio","QGIS","COMSOL Multiphysics","Picarro Isotope Analyzer","ICP-MS","IRMS",
-          "Laser Particle Analyzer","Ion Chromatograph","Sediment Coring","Isotope Mixing Model","QIIME 2"
-        ].map((s) => (
-          <span key={s} className="rounded-full bg-accent-soft px-3 py-1.5 text-xs font-medium text-foreground/80">{s}</span>
-        ))}
+      <div className="space-y-5 text-sm leading-relaxed text-foreground/80">
+        <p>
+          Structured short courses and bespoke workshops for universities, research
+          institutes, government agencies and private teams. Delivered by practising
+          scientists, every module pairs concept with applied lab work.
+        </p>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {[
+            "Introduction to GIS & QGIS",
+            "Remote Sensing with Google Earth Engine",
+            "Python for Geospatial Analysis",
+            "Climate & Hydrological Data Analysis",
+            "Glacier & Cryosphere Monitoring",
+            "Stable & Radio Isotope Methods",
+            "Field Sampling & Sediment Coring",
+            "Scientific Writing for Earth Sciences",
+          ].map((m) => (
+            <li key={m} className="border-l border-border pl-3 text-foreground/85">
+              {m}
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">
+          Formats — On-site · Hybrid · Custom curriculum
+        </p>
       </div>
     ),
   },
   {
-    id: "awards",
-    icon: Award, title: "Awards & Recognition",
-    subtitle: "Best presentation awards · IISc postdoc selection",
+    id: "studies",
+    number: "02",
+    icon: CloudSun,
+    title: "Climate & Environmental Studies",
+    tagline: "Assessment, monitoring and impact studies for changing landscapes.",
     body: (
-      <ul className="space-y-3 text-sm text-foreground/85">
-        <li>• Best Presentation Award — International Conference on Geospatial Innovations, University of Delhi (2025)</li>
-        <li>• 1st Prize, Best Poster Presentation — National Seminar on Geochemical Processes & Climate Change (2015)</li>
-        <li>• Selected for Postdoc, Centre for Earth Sciences, IISc Bangalore (2021)</li>
-        <li>• Shortlisted (2nd-stage interview) — Assistant Professor, IIT Delhi · IIT Bombay · IISER Berhampur</li>
-        <li>• Qualified UGC-NET in Environmental Sciences (2014)</li>
-      </ul>
-    ),
-  },
-  {
-    id: "conferences",
-    icon: Users, title: "Conferences & Talks",
-    subtitle: "11+ presentations at national & international venues",
-    body: (
-      <ol className="space-y-3 text-sm text-foreground/85 list-decimal pl-5 marker:text-muted-foreground">
-        <li>Tracking the last 11,000-year glaciers and monsoon climate variability — University of Delhi, 2025 <em className="text-accent">(Best Presentation)</em></li>
-        <li>Holocene Indian Summer Monsoon — PRL Ahmedabad, 2025</li>
-        <li>HKH Wetlands & Springs: A Climate Change Barometer — University of Delhi, 2025</li>
-        <li>Decoding the role of ISM and westerlies in cloud cover variability — 11th WMO Conference, IITM Pune, 2025</li>
-        <li>Holocene monsoon variability from ice cores & lake sediments — Indian Colloquium on Micropaleontology, 2024</li>
-        <li>Identifying drivers of aerosol variability in the Himalayas — AGU, 2021</li>
-        <li>Tracking glacier and climate variability in the Himalaya — International Geological Congress, 2020</li>
-      </ol>
+      <div className="space-y-5 text-sm leading-relaxed text-foreground/80">
+        <p>
+          End-to-end studies that combine satellite observation, in-situ
+          measurement and isotope geochemistry to characterise how climate is
+          reshaping rivers, glaciers, springs and watersheds.
+        </p>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {[
+            "Glacier mass balance & change detection",
+            "Snow, ice melt & runoff partitioning",
+            "Hydrological & sediment-load assessments",
+            "Spring & groundwater recharge studies",
+            "Black carbon & aerosol impact studies",
+            "Paleoclimate & monsoon reconstruction",
+            "Water quality & environmental health",
+            "Climate vulnerability & resilience reports",
+          ].map((m) => (
+            <li key={m} className="border-l border-border pl-3 text-foreground/85">
+              {m}
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">
+          Deliverables — Technical reports · Datasets · Peer-reviewed outputs
+        </p>
+      </div>
     ),
   },
 ];
 
-
-function Edu({ year, title, detail }: { year: string; title: string; detail: string }) {
+function Services() {
   return (
-    <li>
-      <div className="text-xs uppercase tracking-widest text-accent">{year}</div>
-      <div className="mt-0.5 font-medium text-foreground">{title}</div>
-      <p className="mt-1 text-foreground/70">{detail}</p>
-    </li>
-  );
-}
-
-function Job({ period, role, org }: { period: string; role: string; org: string }) {
-  return (
-    <li className="relative">
-      <span className="absolute -left-[27px] top-1.5 h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-background" />
-      <div className="text-xs uppercase tracking-widest text-muted-foreground">{period}</div>
-      <div className="mt-0.5 font-medium text-foreground">{role}</div>
-      <p className="text-foreground/70">{org}</p>
-    </li>
-  );
-}
-
-function Proj({ years, role, title, host }: { years: string; role: string; title: string; host: string }) {
-  return (
-    <li className="rounded-xl border border-border/70 p-4">
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="font-medium text-foreground">{title}</span>
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">{years}</span>
+    <section id="services" className="border-b border-border">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+        <SectionHeading eyebrow="Services" title="What we do" />
+        <p className="mt-6 max-w-2xl text-base text-muted-foreground">
+          Two practice areas, deeply connected. Click a card to read more.
+        </p>
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {services.map((s) => <ServiceCard key={s.id} service={s} />)}
+        </div>
       </div>
-      <p className="mt-1.5 text-xs text-accent">{role}</p>
-      <p className="mt-0.5 text-xs text-muted-foreground">{host}</p>
-    </li>
+    </section>
   );
 }
 
-function ExpandableCard({ card }: { card: CardData }) {
+function ServiceCard({ service }: { service: Service }) {
   const [open, setOpen] = useState(false);
-  const Icon = card.icon;
+  const Icon = service.icon;
   return (
-    <div id={card.section} className="group rounded-2xl border border-border/70 bg-card transition-shadow hover:shadow-sm">
+    <article className="border border-border bg-card transition-colors hover:border-foreground/40">
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center gap-4 px-5 py-5 text-left"
+        className="flex w-full items-start gap-5 px-6 py-7 text-left"
       >
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-soft">
-          <Icon className="h-5 w-5 text-accent" />
-        </span>
-        <span className="flex-1">
-          <span className="block font-display text-base font-semibold text-foreground">{card.title}</span>
-          <span className="block text-sm text-muted-foreground">{card.subtitle}</span>
-        </span>
-        <ChevronDown className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
+        <span className="font-display text-sm text-muted-foreground">{service.number}</span>
+        <div className="flex-1">
+          <div className="flex items-center gap-3">
+            <Icon className="h-5 w-5 text-foreground" />
+            <h3 className="font-display text-xl font-medium tracking-tight">{service.title}</h3>
+          </div>
+          <p className="mt-2 text-sm text-muted-foreground">{service.tagline}</p>
+        </div>
+        <ChevronDown className={`mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="border-t border-border/60 px-5 py-5 animate-in fade-in slide-in-from-top-1">
-          {card.body}
+        <div className="border-t border-border px-6 py-7 animate-in fade-in slide-in-from-top-1">
+          {service.body}
         </div>
       )}
-    </div>
+    </article>
   );
 }
 
-function CompanySection() {
+function Approach() {
+  const items = [
+    { icon: Microscope, title: "Scientific rigour", body: "Methods drawn from peer-reviewed research, with full traceability from raw observation to insight." },
+    { icon: Layers, title: "Multi-scale data", body: "Satellite, airborne and field measurements fused to give a coherent picture across landscape and time." },
+    { icon: Compass, title: "Decision support", body: "Findings translated into clear maps, reports and training so partners can act with confidence." },
+  ];
   return (
-    <section id="company" className="relative mt-10 overflow-hidden rounded-2xl bg-foreground p-6 text-background md:p-8">
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/40 via-foreground to-foreground" />
-      <div className="relative flex flex-col items-start gap-5 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-4">
-          <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-background/10 backdrop-blur">
-            <Globe className="h-5 w-5 text-background" />
-          </span>
-          <div>
-            <h3 className="font-display text-xl font-semibold">Environmental ES</h3>
-            <p className="text-sm text-background/75">Environmental Research & Consulting</p>
-          </div>
+    <section id="approach" className="border-b border-border bg-muted/40">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+        <SectionHeading eyebrow="Approach" title="How we work" />
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
+          {items.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="border-t border-foreground pt-6">
+              <Icon className="h-5 w-5" />
+              <h3 className="mt-5 font-display text-xl font-medium tracking-tight">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+            </div>
+          ))}
         </div>
-        <span className="inline-flex items-center gap-2 rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/80">
-          <Globe className="h-3.5 w-3.5" /> Domain coming soon
-        </span>
       </div>
     </section>
   );
 }
 
-function CardGrid() {
+function Founder() {
+  const [open, setOpen] = useState(false);
   return (
-    <section className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {cards.map((c) => <ExpandableCard key={c.id} card={c} />)}
+    <section id="founder" className="border-b border-border">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+        <SectionHeading eyebrow="Founder" title="About the founder" />
+        <div className="mt-12 grid gap-12 md:grid-cols-[1fr_2fr]">
+          <div>
+            <div className="aspect-square w-full max-w-xs border border-border bg-muted/60 flex items-center justify-center">
+              <Mountain className="h-10 w-10 text-muted-foreground" />
+            </div>
+            <p className="mt-5 font-display text-xl font-medium tracking-tight">Dr. Om Kumar</p>
+            <p className="text-sm text-muted-foreground">Founder · Lead Scientist</p>
+          </div>
+          <div className="space-y-5 text-base leading-relaxed text-foreground/85">
+            <p>
+              Earth2Sky is led by <strong>Dr. Om Kumar</strong>, a Postdoctoral
+              Researcher at the International Centre of Excellence for Dams,
+              IIT&nbsp;Roorkee, working on climate change, the cryosphere, and
+              monsoon–river sediment interaction.
+            </p>
+            <p>
+              With over a decade of research across the Himalaya — spanning glacier
+              dynamics, paleoclimate reconstruction and isotope hydrology — he founded
+              Earth2Sky to translate that science into training and consulting that
+              institutions can put to work.
+            </p>
+            <dl className="grid grid-cols-3 gap-6 border-t border-border pt-6">
+              {[
+                ["15", "Publications"],
+                ["10+", "Years field research"],
+                ["4", "Funded projects"],
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <dt className="font-display text-2xl font-medium">{v}</dt>
+                  <dd className="mt-1 text-[11px] uppercase tracking-widest text-muted-foreground">{l}</dd>
+                </div>
+              ))}
+            </dl>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="inline-flex items-center gap-2 text-sm font-medium underline-offset-4 hover:underline"
+            >
+              {open ? "Hide details" : "Read full bio"}
+              <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+            </button>
+            {open && (
+              <div className="space-y-4 border-t border-border pt-6 text-sm text-foreground/80 animate-in fade-in slide-in-from-top-1">
+                <p>
+                  Ph.D. in Himalayan Glaciology with a thesis on Holocene monsoon
+                  variability from Chandratal Lake sediments. UGC-NET qualified in
+                  Environmental Sciences (2014).
+                </p>
+                <p>
+                  Previously Maharishi Kanad Postdoctoral Fellow at the Institution of
+                  Eminence, University of Delhi; Project Scientist at the National
+                  Institute of Hydrology, Roorkee; and faculty across the University of
+                  Delhi colleges.
+                </p>
+                <p>
+                  Research interests: Himalayan cryosphere, stable &amp; radio isotopes,
+                  paleoclimate proxies, monsoon–westerlies interaction, black carbon,
+                  spring recharge dynamics and environmental health.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
 function Contact() {
   return (
-    <section id="contact" className="mt-10 rounded-2xl border border-border/70 bg-card p-6 md:p-8">
-      <h2 className="font-display text-2xl font-semibold">Get in Touch</h2>
-      <div className="mt-6 grid gap-4 md:grid-cols-2">
-        <ContactItem icon={Mail} label="Primary Email" value="omkrs007@gmail.com" href="mailto:omkrs007@gmail.com" />
-        <ContactItem icon={Mail} label="Institutional Email" value="omrs007.pdf@ioe.du.ac.in" href="mailto:omrs007.pdf@ioe.du.ac.in" highlight />
-        <ContactItem icon={Phone} label="Phone" value="+91-9555111859" href="tel:+919555111859" />
-        <ContactItem icon={MapPin} label="Current Position" value="Postdoctoral Researcher, ICED, IIT Roorkee" />
+    <section id="contact" className="border-b border-border bg-foreground text-background">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+        <p className="text-xs uppercase tracking-[0.3em] text-background/60">Contact</p>
+        <h2 className="mt-5 font-display text-4xl font-medium tracking-tight md:text-5xl">
+          Let's discuss your project.
+        </h2>
+        <p className="mt-5 max-w-xl text-base text-background/70">
+          Tell us about your training need, study area or research question.
+          We'll respond within two working days.
+        </p>
+        <div className="mt-12 grid gap-px bg-background/20 md:grid-cols-3">
+          <ContactItem icon={Mail} label="Email" value="hello@earth2sky.in" href="mailto:hello@earth2sky.in" />
+          <ContactItem icon={Phone} label="Phone" value="+91 95551 11859" href="tel:+919555111859" />
+          <ContactItem icon={MapPin} label="Based in" value="Roorkee, India" />
+        </div>
+        <p className="mt-10 inline-flex items-center gap-2 rounded-full border border-background/30 px-3 py-1.5 text-xs uppercase tracking-widest text-background/70">
+          <Globe2 className="h-3.5 w-3.5" /> earth2sky.in · domain coming soon
+        </p>
       </div>
     </section>
   );
 }
 
-function ContactItem({ icon: Icon, label, value, href, highlight }: {
-  icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string; highlight?: boolean;
+function ContactItem({ icon: Icon, label, value, href }: {
+  icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string;
 }) {
   const inner = (
-    <div className={`flex items-center gap-4 rounded-xl border border-border/60 p-4 transition-colors hover:border-accent/60 ${highlight ? "bg-accent-soft/60" : ""}`}>
-      <Icon className="h-5 w-5 text-accent" />
+    <div className="flex h-full flex-col justify-between gap-6 bg-foreground p-7 transition-colors hover:bg-foreground/90">
+      <Icon className="h-5 w-5 text-background/80" />
       <div>
-        <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</div>
-        <div className="mt-0.5 text-sm font-medium text-foreground">{value}</div>
+        <div className="text-[10px] uppercase tracking-[0.25em] text-background/50">{label}</div>
+        <div className="mt-2 font-display text-lg text-background">{value}</div>
       </div>
     </div>
   );
-  return href ? <a href={href}>{inner}</a> : inner;
+  return href ? <a href={href} className="block">{inner}</a> : inner;
+}
+
+function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
+  return (
+    <div>
+      <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{eyebrow}</p>
+      <h2 className="mt-5 font-display text-4xl font-medium tracking-tight md:text-5xl">{title}</h2>
+    </div>
+  );
 }
 
 function Footer() {
   return (
-    <footer className="border-t border-border/60 bg-foreground py-8 text-center text-xs text-background/60">
-      Om Kumar · Postdoctoral Researcher · International Centre of Excellence for Dams, IIT Roorkee · {new Date().getFullYear()}
+    <footer className="bg-background py-10 text-center text-xs text-muted-foreground">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 md:flex-row md:justify-between">
+        <span className="font-display text-sm text-foreground">Earth2Sky</span>
+        <span>© {new Date().getFullYear()} Earth2Sky · Geospatial & Environmental Consulting</span>
+        <span className="flex items-center gap-1.5"><Users className="h-3.5 w-3.5" /> Founded by Dr. Om Kumar</span>
+      </div>
     </footer>
   );
 }
